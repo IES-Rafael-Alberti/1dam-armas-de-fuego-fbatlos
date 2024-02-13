@@ -2,14 +2,14 @@ import kotlin.random.Random
 import kotlin.random.Random.Default.nextInt
 
 abstract class ArmaDeFuego (
-    val nombre:String ,
-    val municion:Int ,
-    val municionARestar: Int,
-    val tipoDeMunicion:String
+    var municion:Int,
+    val tipoDeMunicion:String,
 ){
-    val cantidadMunicionExtra:Int = nextInt(5,15)
+    var cantidadMunicionExtra:Int = nextInt(5,15)
+    abstract val nombre:String
     abstract var radio:Radio
     abstract var danio:Int
+    abstract var municionARestar: Int
 
     abstract fun dispara(): String
     abstract fun recargar():String
