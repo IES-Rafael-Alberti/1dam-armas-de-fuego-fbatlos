@@ -1,21 +1,23 @@
 fun main(){
-   /* val Pistola1 = Pistola("Pepe" , 4 , "23")
-    println(Pistola1.dispara())
-    println(Pistola1.dispara())
-    println(Pistola1.dispara())
-    println(Pistola1.dispara())
-    println(Pistola1.dispara())
-    println(Pistola1.toString())
-    */
-
-    val rifle1 = Rifle( 8 , "65")
-    println(rifle1.cantidadMunicionExtra)
-    println(rifle1.dispara())
-    println(rifle1.dispara())
-    println(rifle1.dispara())
-    println(rifle1.dispara())
-    println(rifle1.dispara())
-    println(rifle1.toString())
-    println(rifle1.cantidadMunicionExtra)
+    val listaArmas = mutableListOf<ArmaDeFuego>()
+    val pistola1 = Pistola(4,"35")
+    listaArmas.add(pistola1)
+    val rifle1 = Rifle(6,"55")
+    listaArmas.add(rifle1)
+    val bazooka1 = Bazooka(8 , "85")
+    listaArmas.add(bazooka1)
+    val disparos = (1..12).map { listaArmas.random() to (1..3).random() }
+    var cont = 1
+    println("Munición Extra = ${ArmaDeFuego.cantidadMunicionExtra} ... para todas las armas de fuego.")
+    println()
+    for (disparo in disparos) {
+        println("*** Disparo: $cont")
+        println("Municion : ${ArmaDeFuego.cantidadMunicionExtra}")
+        for (i in 1..disparo.second) {
+            println(disparo.first.dispara())
+            println(disparo.first.toString())
+        }
+        cont++
+    }
 
 }
