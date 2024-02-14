@@ -1,6 +1,7 @@
 fun main(){
+
     val listaArmas = mutableListOf<ArmaDeFuego>()
-    val pistola1 = Pistola(4,"35")
+    val pistola1 = Pistola(4,"15")
     listaArmas.add(pistola1)
     val rifle1 = Rifle(6,"55")
     listaArmas.add(rifle1)
@@ -14,10 +15,21 @@ fun main(){
         println("*** Disparo: $cont")
         println("Municion : ${ArmaDeFuego.cantidadMunicionExtra}")
         for (i in 1..disparo.second) {
-            println(disparo.first.dispara())
+            disparo.first.dispara()
             println(disparo.first.toString())
         }
         cont++
     }
 
+    /*
+    * otra forma de hacerlo :
+    *
+    * disparos.forEach{(arma,veces)->
+    * print ("** Disparo: ${Disparos}")
+    * .repeat(veces){
+    *   arma.dispara()
+    *   arma.mostrarInfo()
+    * }
+    * }
+    * */
 }
